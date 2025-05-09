@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        <%= title %>
+    </title>
+    <!-- bs css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- custom css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <div class="create p-3">
+        <form action="/" method="post" class="d-flex align-items-center justify-content-between">
+            <input type="text" name="new_item" placeholder="Enter Item Text..." class="form-control">
+            <button class="btn btn-danger">Add Task</button>
+        </form>
+    </div>
+
+
+    <div class="main p-3">
+        <ul>
+
+            <% if (typeof all_tasks===typeof []){ %>
+                <% all_tasks.forEach(task=> { %>
+                    <li class="d-flex align-items-center justify-content-between">
+                        <%=task %>
+                            <a href="#" class="btn btn-sm btn-danger">X</a>
+                    </li>
+
+                    <% }); %>
+                        <%}else{%>
+                            <li>No Items Found</li>
+                            <%}%>
+
+        </ul>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
