@@ -61,7 +61,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.18);
   /* Same border */
 }
-
 .main ul {
   border-radius: 4px;
   /* Rounds the corners of the <ul> (task list) with a 4px radius */
@@ -80,4 +79,8 @@ body {
   /* Adds 1rem padding inside each <li> (task item) for spacing */
   border-bottom: 1px solid #ccc;
   /* Adds a 1px light gray border below each <li> to separate tasks */
+}
+
+.main ul li:last-child {
+  border: none;
 }

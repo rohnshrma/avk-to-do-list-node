@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 // Defines the port number (3000) where the server will listen for requests
 
-const tasks = [];
+var tasks = [];
 // Initializes an empty array to store tasks in memory (not persistent; resets on server restart)
 
 // middleware
@@ -49,6 +49,17 @@ app
     res.redirect("/");
     // Redirects the user back to the root URL ("/"), triggering a GET request to refresh the page
   });
+
+app.route("/delete/:id").get((req, res) => {
+  // Defines a route for deleting tasks, where `:id` is a URL parameter (e.g., /delete/0)
+  var id = req.params.id;
+  // Retrieves the `id` parameter from the URL (e.g., "0" for the first task)
+  tasks = tasks.filter((task, index) => index != id);
+  // Filters the tasks array to remove the task at the specified index
+  // `filter` creates a new array, keeping only elements where the index doesn't match `id`
+  res.redirect("/");
+  // Redirects the user back to the root URL ("/"), triggering a GET request to refresh the page
+});
 
 // setup server
 app.listen(port, () => {
